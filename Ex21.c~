@@ -30,22 +30,22 @@ Aluno pop(Stack *stack)
 
 Aluno find(Stack *stack, int id)
 {
-    if (stack->top == -1) {
-	Aluno vazio = { 0, 0, 0, 0 };
-	return vazio;
+        if (stack->top == -1) {
+        Aluno vazio = {0, 0, 0, 0};
+        return vazio; 
     }
-
+    
     Aluno aux = pop(stack);
 
     if (id == aux.id) {
 	push(stack, aux);
 	return aux;
-    }
-
+    } 
+    
     Aluno re = find(stack, id)
-	push(stack, aux);
+    push(stack, aux);
     return re;
-
+    
 }
 
 int main()
