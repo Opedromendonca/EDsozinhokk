@@ -3,8 +3,8 @@
  * Author: 202311336,pedro mendonca,pedro.202311336@unilasalle.edu.br'	
  * Created on: 2025-05-10
  */
-
 // MOD-001 - INI - Pedro
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -108,7 +108,8 @@ int main()
 	scanf("%d", &opt);
 
 	switch (opt) {
-	case 1:{
+	case 1:
+	    {
 		Aluno aluno;
 		printf("ID: ");
 		scanf("%d", &aluno.id);
@@ -121,13 +122,15 @@ int main()
 		push(&stack, aluno);
 		break;
 	    }
-	case 2:{
+	case 2:
+	    {
 		Aluno rm = pop(&stack);
 		printf("removido: ");
 		show(rm);
 		break;
 	    }
-	case 3:{
+	case 3:
+	    {
 		int id;
 		printf("qual id? ");
 		scanf("%d", &id);
@@ -137,7 +140,8 @@ int main()
 	    }
 	}
 
-    } while (opt != 0);
+    }
+    while (opt != 0);
 
     free(stack.aluno);
     return 0;
