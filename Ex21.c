@@ -31,7 +31,7 @@ Aluno pop(Stack *stack)
 Aluno find(Stack *stack, int id)
 {
     if (stack->top == -1) {
-	Aluno vazio = { 0, 0, 0, 0 };
+	Aluno vazio = { -1, 0, 0, 0 };
 	return vazio;
     }
 
@@ -42,10 +42,19 @@ Aluno find(Stack *stack, int id)
 	return aux;
     }
 
-    Aluno re = find(stack, id)
+    Aluno re = find(stack, id);
 	push(stack, aux);
     return re;
 
+}
+
+void show(Aluno aluno) {
+	if (aluno.id == -1) {
+		printf("não foi possivel achar");
+	} else {
+	printf("ID: %d | G1: %.2f | G2: %.2f | Média: %.2f\n",
+           aluno.id, aluno.g1, aluno.g2, aluno.media);
+          }
 }
 
 int main()
@@ -62,7 +71,7 @@ int main()
     int opt;
     do {
 
-	printf("1 - push \n2 - pop \n3 - find \n0 - exit \n");
+	printf("\n1 - push \n2 - pop \n3 - find \n0 - exit \n");
 	scanf("%d", &opt);
 
 	switch (opt) {
@@ -88,17 +97,17 @@ int main()
 	case 2:
 
 	    Aluno rm = pop(&stack);
-
+	    printf("removido: ");
+		show(rm);
 	    break;
 
 	case 3:
 
 	    int id;
-
 	    printf("qual id? ");
 	    scanf("%d", &id);
 
-	    find(&stack, id);
+	    show(find(&stack, id));
 
 	    break;
 
