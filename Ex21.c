@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 typedef struct {
-int ID;
+int id;
 float g1,g2,media;
 } Aluno;
 
@@ -18,6 +18,11 @@ Aluno *aluno;
 int top;
 } Stack;
 
+void push( Stack *stack, Aluno aluno ) {
+	
+	stack->aluno[++stack->top] = aluno;
+	
+}
 
 int main() {
     Stack stack;
@@ -32,22 +37,38 @@ int main() {
 	int opt;
 	do {
 		
-		printf("1 - push \n2 - pop \n3 - find \n0 - exit ");
-		scanf("\n qual?%d", &opt);
+		printf("1 - push \n2 - pop \n3 - find \n0 - exit \n");
+		scanf("%d", &opt);
 		
 		switch (opt) {
 			
 			case 1:
+			Aluno aluno;
 			
+			printf("ID: ");
+			scanf("%d", &aluno.id);
 			
-			//push();
+			printf("G1: ");	
+			scanf("%f", &aluno.g1);
+			
+			printf("G2: ");	
+			scanf("%f", &aluno.g2);
+		
+			aluno.media = (aluno.g1 + aluno.g2) / 2;
+		
+			push(&stack, aluno);
+		
+			break;
+			
 			case 2:
 			//pop();
+			break;
 			case 3:
 			int id;
 			printf("qual id? ");
 			scanf("%d", &id);
 			//find();
+			break;
 			
 		}
 		
